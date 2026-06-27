@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://bw41m0vdbdpxc"]
+
+[ext_resource type="Script" uid="uid://b6qmtj6qigevn" path="res://butterfly.gd" id="1_fn0p1"]
+[ext_resource type="Texture2D" uid="uid://chut8kb0cf2hj" path="res://icon.svg" id="1_l7i6p"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_k6jfe"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_l7i6p")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_fn0p1"]
+radius = 42.0119
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0xm2m"]
+radius = 250.0
+
+[node name="butterfly" type="CharacterBody2D" unique_id=1727871081 groups=["butterfly"]]
+collision_layer = 2
+collision_mask = 0
+script = ExtResource("1_fn0p1")
+metadata/_edit_group_ = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1867857081 groups=["butterfly"]]
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_k6jfe")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=900681569 groups=["butterfly"]]
+shape = SubResource("CircleShape2D_fn0p1")
+
+[node name="range" type="Area2D" parent="." unique_id=1274292366]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="range" unique_id=235478227]
+shape = SubResource("CircleShape2D_0xm2m")
+
+[connection signal="body_entered" from="range" to="." method="_on_range_body_entered"]
+[connection signal="body_exited" from="range" to="." method="_on_range_body_exited"]

@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://c721y6p0dx5ah"]
+
+[ext_resource type="PackedScene" uid="uid://bw41m0vdbdpxc" path="res://butterfly.tscn" id="1_0xm2m"]
+[ext_resource type="PackedScene" uid="uid://d2u6nl3ep376q" path="res://player.tscn" id="1_ig7tw"]
+
+[node name="main" type="Node2D" unique_id=1849300114]
+
+[node name="butterfly" parent="." unique_id=1727871081 instance=ExtResource("1_0xm2m")]
+position = Vector2(924, 201)
+
+[node name="Player" parent="." unique_id=1903864032 instance=ExtResource("1_ig7tw")]
+position = Vector2(151, 491)
