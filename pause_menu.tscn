@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://d0rir2l6vqiul"]
+
+[ext_resource type="Texture2D" uid="uid://tcmknpivxtx" path="res://grass.png" id="1_hdmo1"]
+
+[node name="PauseMenu" type="CanvasLayer" unique_id=2071406868]
+
+[node name="Grass" type="Sprite2D" parent="." unique_id=1506546878]
+position = Vector2(1001, 633)
+texture = ExtResource("1_hdmo1")
