@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-@export var speed = 400
+@export var speed: float = 500
 var screen_size
 
 func _ready() -> void:
@@ -9,9 +9,11 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	var velocity = Vector2.ZERO
 	if Input.is_action_pressed("move_right"):
+		$AnimatedSprite2D.flip_h = true
 		velocity.x += 1
 	if Input.is_action_pressed("move_left"):
 		velocity.x -= 1
+		$AnimatedSprite2D.flip_h = false
 	if Input.is_action_pressed("move_down"):
 		velocity.y += 1
 	if Input.is_action_pressed("move_up"):
@@ -25,3 +27,5 @@ func _process(delta: float) -> void:
 		
 	position += velocity * delta
 	position = position.clamp(Vector2.ZERO, screen_size)
+	#position.x = wrapf(position.x, 0, screen_size.x)
+	#position.y = wrapf(position.y, 0, screen_size.y)

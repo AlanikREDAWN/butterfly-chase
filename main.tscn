@@ -1,12 +1,75 @@
 [gd_scene format=3 uid="uid://c721y6p0dx5ah"]
 
 [ext_resource type="PackedScene" uid="uid://bw41m0vdbdpxc" path="res://butterfly.tscn" id="1_0xm2m"]
+[ext_resource type="Script" uid="uid://xv744uxg2w05" path="res://main.gd" id="1_h2yge"]
 [ext_resource type="PackedScene" uid="uid://d2u6nl3ep376q" path="res://player.tscn" id="1_ig7tw"]
+[ext_resource type="Texture2D" uid="uid://tcmknpivxtx" path="res://grass.png" id="4_1bvp3"]
+[ext_resource type="FontFile" uid="uid://k3qg4fgal00y" path="res://KgPrimaryWhimsy-82qz.ttf" id="5_7mycd"]
+[ext_resource type="AudioStream" uid="uid://cg67565w1406s" path="res://CuriousCritters.mp3" id="5_lquwl"]
 
 [node name="main" type="Node2D" unique_id=1849300114]
+script = ExtResource("1_h2yge")
+
+[node name="grass" type="TextureRect" parent="." unique_id=1061809340]
+offset_left = -155.0
+offset_top = -134.0
+offset_right = 2205.0
+offset_bottom = 1506.0
+texture = ExtResource("4_1bvp3")
 
 [node name="butterfly" parent="." unique_id=1727871081 instance=ExtResource("1_0xm2m")]
 position = Vector2(924, 201)
 
+[node name="butterfly2" parent="." unique_id=1494856913 instance=ExtResource("1_0xm2m")]
+position = Vector2(311, 158)
+
+[node name="butterfly3" parent="." unique_id=1380422114 instance=ExtResource("1_0xm2m")]
+position = Vector2(743, 609)
+
+[node name="butterfly4" parent="." unique_id=670623696 instance=ExtResource("1_0xm2m")]
+position = Vector2(1587, 361)
+
+[node name="butterfly5" parent="." unique_id=888341338 instance=ExtResource("1_0xm2m")]
+position = Vector2(1263, 583)
+
+[node name="butterfly6" parent="." unique_id=589322998 instance=ExtResource("1_0xm2m")]
+position = Vector2(1677, 845)
+
+[node name="butterfly7" parent="." unique_id=1914355432 instance=ExtResource("1_0xm2m")]
+position = Vector2(426, 845)
+
+[node name="butterfly8" parent="." unique_id=2122249979 instance=ExtResource("1_0xm2m")]
+position = Vector2(1085, 882)
+
+[node name="butterfly9" parent="." unique_id=811555861 instance=ExtResource("1_0xm2m")]
+position = Vector2(1273, 227)
+
+[node name="butterfly10" parent="." unique_id=169402095 instance=ExtResource("1_0xm2m")]
+position = Vector2(608, 299)
+
 [node name="Player" parent="." unique_id=1903864032 instance=ExtResource("1_ig7tw")]
 position = Vector2(151, 491)
+
+[node name="butterflyLabel" type="Label" parent="." unique_id=782854965]
+offset_left = 58.0
+offset_top = 50.0
+offset_right = 716.0
+offset_bottom = 153.0
+theme_override_fonts/font = ExtResource("5_7mycd")
+theme_override_font_sizes/font_size = 125
+text = "Butterflies Caught: 0"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=867866935]
+stream = ExtResource("5_lquwl")
+autoplay = true
+parameters/looping = true
+
+[node name="timeLabel" type="Label" parent="." unique_id=796381227]
+offset_left = 1025.0
+offset_top = 51.0
+offset_right = 1856.0
+offset_bottom = 169.0
+theme_override_fonts/font = ExtResource("5_7mycd")
+theme_override_font_sizes/font_size = 125
+text = "time"
+horizontal_alignment = 2

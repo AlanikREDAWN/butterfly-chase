@@ -1,42 +1,95 @@
 [gd_scene format=3 uid="uid://bw41m0vdbdpxc"]
 
 [ext_resource type="Script" uid="uid://b6qmtj6qigevn" path="res://butterfly.gd" id="1_fn0p1"]
-[ext_resource type="Texture2D" uid="uid://chut8kb0cf2hj" path="res://icon.svg" id="1_l7i6p"]
+[ext_resource type="Texture2D" uid="uid://ca78joxahpsp4" path="res://butterfly.png" id="2_fn0p1"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_tstti"]
+radius = 80.024994
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_k6jfe"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_l7i6p")
+"texture": ExtResource("2_fn0p1")
 }],
 "loop": 1,
 "name": &"default",
 "speed": 5.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_fn0p1"]
-radius = 42.0119
-
 [sub_resource type="CircleShape2D" id="CircleShape2D_0xm2m"]
-radius = 250.0
+radius = 600.0
 
 [node name="butterfly" type="CharacterBody2D" unique_id=1727871081 groups=["butterfly"]]
+scale = Vector2(0.5, 0.5)
 collision_layer = 2
 collision_mask = 0
+motion_mode = 1
 script = ExtResource("1_fn0p1")
 metadata/_edit_group_ = true
 
+[node name="collision" type="Area2D" parent="." unique_id=742739944]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="collision" unique_id=900681569 groups=["butterfly"]]
+shape = SubResource("CircleShape2D_tstti")
+
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1867857081 groups=["butterfly"]]
-scale = Vector2(0.5, 0.5)
+scale = Vector2(0.07, 0.07)
 sprite_frames = SubResource("SpriteFrames_k6jfe")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=900681569 groups=["butterfly"]]
-shape = SubResource("CircleShape2D_fn0p1")
-
 [node name="range" type="Area2D" parent="." unique_id=1274292366]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="range" unique_id=235478227]
 shape = SubResource("CircleShape2D_0xm2m")
 
+[node name="FollowWallRays" type="Node2D" parent="." unique_id=1275031550]
+process_mode = 4
+visible = false
+show_behind_parent = true
+
+[node name="Front" type="RayCast2D" parent="FollowWallRays" unique_id=601605028]
+rotation = -1.5707964
+target_position = Vector2(0, 120)
+collision_mask = 2
+collide_with_areas = true
+
+[node name="Left" type="RayCast2D" parent="FollowWallRays" unique_id=206063389]
+rotation = 0.34906584
+scale = Vector2(-1, -1)
+target_position = Vector2(0, -150)
+collision_mask = 2
+collide_with_areas = true
+
+[node name="Right" type="RayCast2D" parent="FollowWallRays" unique_id=1654736649]
+rotation = -0.34906584
+scale = Vector2(-1, -1)
+target_position = Vector2(0, 150)
+collision_mask = 2
+collide_with_areas = true
+
+[node name="ObstacleRays" type="Node2D" parent="." unique_id=605356302]
+process_mode = 4
+visible = false
+show_behind_parent = true
+
+[node name="Front" type="RayCast2D" parent="ObstacleRays" unique_id=1833405896]
+target_position = Vector2(250, 0)
+collision_mask = 2
+collide_with_areas = true
+
+[node name="Left" type="RayCast2D" parent="ObstacleRays" unique_id=1609486074]
+rotation = -0.6981317
+target_position = Vector2(80, 0)
+collision_mask = 2
+collide_with_areas = true
+
+[node name="Right" type="RayCast2D" parent="ObstacleRays" unique_id=1443242523]
+rotation = 0.6981317
+target_position = Vector2(80, 0)
+collision_mask = 2
+collide_with_areas = true
+
+[connection signal="body_entered" from="collision" to="." method="_on_collision_body_entered"]
 [connection signal="body_entered" from="range" to="." method="_on_range_body_entered"]
 [connection signal="body_exited" from="range" to="." method="_on_range_body_exited"]

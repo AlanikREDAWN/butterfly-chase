@@ -1,0 +1,92 @@
+[gd_scene format=3 uid="uid://cbgrsfirqlg7v"]
+
+[ext_resource type="Script" uid="uid://cyimhndmcn13x" path="res://settings.gd" id="1_x2hje"]
+[ext_resource type="Texture2D" uid="uid://tcmknpivxtx" path="res://grass.png" id="2_gc0em"]
+[ext_resource type="FontFile" uid="uid://bj1ldrapg38oa" path="res://BotanicaWhimsyRegular-yYR63.ttf" id="3_cj1lu"]
+[ext_resource type="FontFile" uid="uid://k3qg4fgal00y" path="res://KgPrimaryWhimsy-82qz.ttf" id="4_71mqq"]
+
+[node name="settings" type="Control" unique_id=1761668629]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_x2hje")
+
+[node name="Grass" type="Sprite2D" parent="." unique_id=198823296]
+position = Vector2(1005, 602)
+texture = ExtResource("2_gc0em")
+
+[node name="title" type="Label" parent="." unique_id=1859945332]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -372.0
+offset_top = 228.0
+offset_right = 372.0
+offset_bottom = 365.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 3
+theme_override_fonts/font = ExtResource("3_cj1lu")
+theme_override_font_sizes/font_size = 150
+text = "Settings"
+horizontal_alignment = 1
+
+[node name="back" type="Button" parent="." unique_id=1681810298]
+layout_mode = 0
+offset_left = 69.0
+offset_top = 71.0
+offset_right = 343.0
+offset_bottom = 208.0
+theme_override_fonts/font = ExtResource("4_71mqq")
+theme_override_font_sizes/font_size = 125
+text = "Back"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1722310275]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -677.0
+offset_top = -55.5
+offset_right = 677.0
+offset_bottom = 55.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 50
+alignment = 1
+
+[node name="Label" type="Label" parent="HBoxContainer" unique_id=46089138]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_71mqq")
+theme_override_font_sizes/font_size = 125
+text = "Game time (minutes):"
+
+[node name="time" type="LineEdit" parent="HBoxContainer" unique_id=1111155752]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_71mqq")
+theme_override_font_sizes/font_size = 125
+text = "1"
+placeholder_text = "1"
+alignment = 1
+
+[node name="Label" type="Label" parent="." unique_id=2087832527]
+layout_mode = 0
+offset_left = 505.0
+offset_top = 639.0
+offset_right = 1429.0
+offset_bottom = 747.0
+theme_override_fonts/font = ExtResource("4_71mqq")
+theme_override_font_sizes/font_size = 100
+text = "(don't forget to hit enter!)"
+horizontal_alignment = 1
+
+[connection signal="pressed" from="back" to="." method="_on_back_pressed"]
+[connection signal="text_submitted" from="HBoxContainer/time" to="." method="_on_time_text_submitted"]
