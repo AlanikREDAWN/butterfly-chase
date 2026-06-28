@@ -4,6 +4,8 @@
 [ext_resource type="Script" uid="uid://cnomrkbwcf7y" path="res://pause_menu.gd" id="1_p81d2"]
 [ext_resource type="FontFile" uid="uid://k3qg4fgal00y" path="res://KgPrimaryWhimsy-82qz.ttf" id="2_nwcfo"]
 [ext_resource type="FontFile" uid="uid://bj1ldrapg38oa" path="res://BotanicaWhimsyRegular-yYR63.ttf" id="3_05uyy"]
+[ext_resource type="AudioStream" uid="uid://1o6h2w6v3pim" path="res://092_Pause_04.wav" id="5_d3xb4"]
+[ext_resource type="AudioStream" uid="uid://d0ka3wnq0v2qc" path="res://098_Unpause_04.wav" id="6_mxa3g"]
 
 [node name="PauseMenu" type="CanvasLayer" unique_id=2071406868]
 process_mode = 3
@@ -48,5 +50,11 @@ theme_override_fonts/font = ExtResource("3_05uyy")
 theme_override_font_sizes/font_size = 150
 text = "Paused"
 horizontal_alignment = 1
+
+[node name="pauseAudio" type="AudioStreamPlayer" parent="." unique_id=483102626]
+stream = ExtResource("5_d3xb4")
+
+[node name="unpauseAudio" type="AudioStreamPlayer" parent="." unique_id=632912986]
+stream = ExtResource("6_mxa3g")
 
 [connection signal="pressed" from="resume" to="." method="_on_resume_pressed"]

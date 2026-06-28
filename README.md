@@ -3,8 +3,10 @@
 ## TODO
 - [x] Pause menu
 	- [x] toggle pause on esc
-
-- [] button sfx
+- [x] button sfx
+	- [x] pause
+	- [x] unpause
+	- [x] other buttons
 - [] butterfly collection sfx
 - [] animations
 - [] evil butterflies

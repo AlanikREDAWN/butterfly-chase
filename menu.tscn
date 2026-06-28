@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://tcmknpivxtx" path="res://grass.png" id="2_4hy44"]
 [ext_resource type="FontFile" uid="uid://bj1ldrapg38oa" path="res://BotanicaWhimsyRegular-yYR63.ttf" id="2_ouk20"]
 [ext_resource type="FontFile" uid="uid://k3qg4fgal00y" path="res://KgPrimaryWhimsy-82qz.ttf" id="3_mae5d"]
+[ext_resource type="AudioStream" uid="uid://ckymcwelv4iy6" path="res://001-hover-01_3R5oRAg3.wav" id="5_ytr4m"]
 
 [node name="menu" type="Control" unique_id=1568201423]
 layout_mode = 3
@@ -64,6 +65,9 @@ grow_horizontal = 2
 theme_override_fonts/font = ExtResource("3_mae5d")
 theme_override_font_sizes/font_size = 150
 text = "Settings"
+
+[node name="buttonAudio" type="AudioStreamPlayer" parent="." unique_id=2030136549]
+stream = ExtResource("5_ytr4m")
 
 [connection signal="pressed" from="start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="settings" to="." method="_on_settings_pressed"]
