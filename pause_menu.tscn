@@ -1,9 +1,52 @@
 [gd_scene format=3 uid="uid://d0rir2l6vqiul"]
 
 [ext_resource type="Texture2D" uid="uid://tcmknpivxtx" path="res://grass.png" id="1_hdmo1"]
+[ext_resource type="Script" uid="uid://cnomrkbwcf7y" path="res://pause_menu.gd" id="1_p81d2"]
+[ext_resource type="FontFile" uid="uid://k3qg4fgal00y" path="res://KgPrimaryWhimsy-82qz.ttf" id="2_nwcfo"]
+[ext_resource type="FontFile" uid="uid://bj1ldrapg38oa" path="res://BotanicaWhimsyRegular-yYR63.ttf" id="3_05uyy"]
 
 [node name="PauseMenu" type="CanvasLayer" unique_id=2071406868]
+process_mode = 3
+script = ExtResource("1_p81d2")
 
-[node name="Grass" type="Sprite2D" parent="." unique_id=1506546878]
-position = Vector2(1001, 633)
+[node name="grass" type="TextureRect" parent="." unique_id=402245600]
+offset_left = -155.0
+offset_top = -134.0
+offset_right = 2205.0
+offset_bottom = 1506.0
 texture = ExtResource("1_hdmo1")
+
+[node name="resume" type="Button" parent="." unique_id=1663627089]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -231.0
+offset_top = 430.0
+offset_right = 231.0
+offset_bottom = 600.0
+grow_horizontal = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_fonts/font = ExtResource("2_nwcfo")
+theme_override_font_sizes/font_size = 150
+text = "Resume"
+
+[node name="title" type="Label" parent="." unique_id=711993611]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -422.0
+offset_top = 118.0
+offset_right = 377.0
+offset_bottom = 369.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 3
+theme_override_fonts/font = ExtResource("3_05uyy")
+theme_override_font_sizes/font_size = 150
+text = "Paused"
+horizontal_alignment = 1
+
+[connection signal="pressed" from="resume" to="." method="_on_resume_pressed"]

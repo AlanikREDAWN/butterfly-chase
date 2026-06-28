@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://tcmknpivxtx" path="res://grass.png" id="4_1bvp3"]
 [ext_resource type="FontFile" uid="uid://k3qg4fgal00y" path="res://KgPrimaryWhimsy-82qz.ttf" id="5_7mycd"]
 [ext_resource type="AudioStream" uid="uid://cg67565w1406s" path="res://CuriousCritters.mp3" id="5_lquwl"]
+[ext_resource type="PackedScene" uid="uid://d0rir2l6vqiul" path="res://pause_menu.tscn" id="7_272bh"]
 
 [node name="main" type="Node2D" unique_id=1849300114]
 script = ExtResource("1_h2yge")
@@ -73,3 +74,5 @@ theme_override_fonts/font = ExtResource("5_7mycd")
 theme_override_font_sizes/font_size = 125
 text = "time"
 horizontal_alignment = 2
+
+[node name="PauseMenu" parent="." unique_id=2071406868 instance=ExtResource("7_272bh")]
