@@ -7,8 +7,10 @@
 	- [x] pause
 	- [x] unpause
 	- [x] other buttons
-- [] butterfly collection sfx
+- [x] butterfly collection sfx
 - [] animations
+	- [] cat animation
+	- [] butterfly animation
 - [] evil butterflies
 - [] proper button art
 	- [] pause + play button assets

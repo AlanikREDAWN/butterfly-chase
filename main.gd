@@ -4,6 +4,7 @@ extends Node2D
 @onready var butterflyLabel: Label = $butterflyLabel
 @onready var game_timer: Timer
 @onready var time_label: Label = $timeLabel
+@onready var butterfly_caught: AudioStreamPlayer = $butterflyCaught
 
 
 
@@ -13,6 +14,7 @@ func _ready() -> void:
 	#Global.game_start.connect(_on_game_start)
 
 func _on_butterfly_caught():
+	butterfly_caught.play()
 	print("butterfly caught")
 	Global.butterflies_caught += 1
 	butterflyLabel.text = "Butterflies Caught: " + str(Global.butterflies_caught)
