@@ -25,7 +25,7 @@ WASD to move. You'll fall asleep if you touch the evil butterflies, but catch as
 	- [] start button asset
 	- [] settings button asset
 	- [] settings back button asset
-- [] evil butterflies
-	- [] puts cat to sleep for a couple of seconds
+- [x] evil butterflies
+	- [x] puts cat to sleep for a couple of seconds
 - [] speed boost powerup
 - [] increasing difficulty
