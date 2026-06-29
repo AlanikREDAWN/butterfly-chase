@@ -66,8 +66,23 @@ theme_override_fonts/font = ExtResource("3_mae5d")
 theme_override_font_sizes/font_size = 150
 text = "Settings"
 
+[node name="howTo" type="Button" parent="." unique_id=2010484173]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -281.0
+offset_top = 867.0
+offset_right = 277.0
+offset_bottom = 1037.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("3_mae5d")
+theme_override_font_sizes/font_size = 150
+text = "How To"
+
 [node name="buttonAudio" type="AudioStreamPlayer" parent="." unique_id=2030136549]
 stream = ExtResource("5_ytr4m")
 
 [connection signal="pressed" from="start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="settings" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="howTo" to="." method="_on_how_to_pressed"]

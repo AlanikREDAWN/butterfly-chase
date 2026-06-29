@@ -96,10 +96,10 @@ func wander(delta):
 	#
 	##velocity = Vector2.ZERO
 
-func setAngle(vector: Vector2, value: int) -> void:
-	var len: int = vector.length()
-	vector.x = cos(deg_to_rad(value)) * len
-	vector.y = sin(deg_to_rad(value)) * len
+#func setAngle(vector: Vector2, value: int) -> void:
+	#var len: int = vector.length()
+	#vector.x = cos(deg_to_rad(value)) * len
+	#vector.y = sin(deg_to_rad(value)) * len
 
 #func _flee(delta: float) -> void:
 	#var direction = -(player.position - position).normalized()
@@ -119,5 +119,6 @@ func _on_range_body_exited(body: Node2D) -> void:
 
 
 func _on_collision_body_entered(body: Node2D) -> void:
-	Global.butterfly_caught.emit()
-	queue_free()
+	if body.is_in_group("player"):
+		Global.butterfly_caught.emit()
+		queue_free()

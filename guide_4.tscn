@@ -1,0 +1,83 @@
+[gd_scene format=3 uid="uid://crhfk4cv8f8ln"]
+
+[ext_resource type="Script" uid="uid://vt10jxs1gdjj" path="res://guide_4.gd" id="1_7rvid"]
+[ext_resource type="Texture2D" uid="uid://tcmknpivxtx" path="res://grass.png" id="1_63kjb"]
+[ext_resource type="FontFile" uid="uid://bj1ldrapg38oa" path="res://BotanicaWhimsyRegular-yYR63.ttf" id="2_ja0np"]
+[ext_resource type="FontFile" uid="uid://k3qg4fgal00y" path="res://KgPrimaryWhimsy-82qz.ttf" id="3_6arkl"]
+[ext_resource type="Texture2D" uid="uid://gy7a6iriqy8p" path="res://cat.png" id="4_ja0np"]
+[ext_resource type="AudioStream" uid="uid://ckymcwelv4iy6" path="res://001-hover-01_3R5oRAg3.wav" id="5_6arkl"]
+
+[node name="guide4" type="Control" unique_id=1210728100]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_7rvid")
+
+[node name="Grass" type="Sprite2D" parent="." unique_id=1119032575]
+position = Vector2(967, 514)
+texture = ExtResource("1_63kjb")
+
+[node name="title" type="Label" parent="." unique_id=134438448]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -456.5
+offset_top = 118.0
+offset_right = 456.5
+offset_bottom = 369.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 3
+theme_override_fonts/font = ExtResource("2_ja0np")
+theme_override_font_sizes/font_size = 150
+text = "Have Fun!"
+horizontal_alignment = 1
+
+[node name="goal" type="Label" parent="." unique_id=1205070781]
+layout_mode = 0
+offset_left = 75.0
+offset_top = 506.0
+offset_right = 1836.0
+offset_bottom = 865.0
+theme_override_fonts/font = ExtResource("3_6arkl")
+theme_override_font_sizes/font_size = 125
+text = "Catch as many yellow butterflies as you can, and have fun!"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="back" type="Button" parent="." unique_id=1967779864]
+layout_mode = 0
+offset_left = 60.0
+offset_top = 875.0
+offset_right = 334.0
+offset_bottom = 1018.0
+theme_override_fonts/font = ExtResource("3_6arkl")
+theme_override_font_sizes/font_size = 125
+text = "Back"
+
+[node name="home" type="Button" parent="." unique_id=1015577708]
+layout_mode = 0
+offset_left = 1590.0
+offset_top = 882.0
+offset_right = 1864.0
+offset_bottom = 1025.0
+theme_override_fonts/font = ExtResource("3_6arkl")
+theme_override_font_sizes/font_size = 125
+text = "Home"
+
+[node name="Cat" type="Sprite2D" parent="." unique_id=1551141979]
+position = Vector2(1542, 321.00006)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("4_ja0np")
+
+[node name="buttonAudio" type="AudioStreamPlayer" parent="." unique_id=639484011]
+stream = ExtResource("5_6arkl")
+
+[connection signal="pressed" from="back" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="home" to="." method="_on_home_pressed"]

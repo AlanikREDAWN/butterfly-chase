@@ -77,6 +77,7 @@ text = "time"
 horizontal_alignment = 2
 
 [node name="PauseMenu" parent="." unique_id=2071406868 instance=ExtResource("7_272bh")]
+visible = false
 
 [node name="butterflyCaught" type="AudioStreamPlayer" parent="." unique_id=2106235748]
 stream = ExtResource("8_5vw27")

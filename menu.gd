@@ -17,3 +17,9 @@ func _on_settings_pressed() -> void:
 	button_audio.play()
 	await button_audio.finished
 	get_tree().change_scene_to_file("res://settings.tscn")
+
+
+func _on_how_to_pressed() -> void:
+	button_audio.play()
+	await button_audio.finished
+	get_tree().change_scene_to_file("res://guide.tscn")

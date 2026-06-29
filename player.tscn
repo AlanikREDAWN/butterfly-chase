@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cxoutpiybl1l2" path="res://player.gd" id="1_onrkg"]
 [ext_resource type="Texture2D" uid="uid://by7d55mkp77s2" path="res://catFrames/cat1.png" id="2_1jxqw"]
+[ext_resource type="Texture2D" uid="uid://ckxlm7673orfh" path="res://sleepingCat.png" id="2_dw050"]
 [ext_resource type="Texture2D" uid="uid://c61obgvsa4f4g" path="res://catFrames/cat2.png" id="3_dw050"]
 [ext_resource type="Texture2D" uid="uid://7bojgn44x4aq" path="res://catFrames/cat3.png" id="4_b26j0"]
 [ext_resource type="Texture2D" uid="uid://bshqkxje2drhg" path="res://catFrames/cat4.png" id="5_n7ghd"]
@@ -10,6 +11,14 @@
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_k6jfe"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_dw050")
+}],
+"loop": 1,
+"name": &"sleep",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("2_1jxqw")
@@ -46,8 +55,6 @@ metadata/_edit_group_ = true
 scale = Vector2(0.1, 0.1)
 sprite_frames = SubResource("SpriteFrames_k6jfe")
 animation = &"walk"
-frame = 2
-frame_progress = 0.06416795
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=384239697]
 shape = SubResource("CircleShape2D_hqtel")

@@ -1,0 +1,77 @@
+[gd_scene format=3 uid="uid://cc6a7tfttsx08"]
+
+[ext_resource type="Texture2D" uid="uid://tcmknpivxtx" path="res://grass.png" id="1_34ht4"]
+[ext_resource type="Script" uid="uid://pjn3gvwk1pic" path="res://guide_2.gd" id="1_bt7pd"]
+[ext_resource type="FontFile" uid="uid://bj1ldrapg38oa" path="res://BotanicaWhimsyRegular-yYR63.ttf" id="2_x6k6f"]
+[ext_resource type="FontFile" uid="uid://k3qg4fgal00y" path="res://KgPrimaryWhimsy-82qz.ttf" id="3_bt7pd"]
+[ext_resource type="AudioStream" uid="uid://ckymcwelv4iy6" path="res://001-hover-01_3R5oRAg3.wav" id="4_x6k6f"]
+
+[node name="guide2" type="Control" unique_id=1985139814]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_bt7pd")
+
+[node name="Grass" type="Sprite2D" parent="." unique_id=1256392435]
+position = Vector2(967, 514)
+texture = ExtResource("1_34ht4")
+
+[node name="title" type="Label" parent="." unique_id=535724696]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -456.5
+offset_top = 118.0
+offset_right = 456.5
+offset_bottom = 369.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 3
+theme_override_fonts/font = ExtResource("2_x6k6f")
+theme_override_font_sizes/font_size = 150
+text = "Controls"
+horizontal_alignment = 1
+
+[node name="goal" type="Label" parent="." unique_id=1407356447]
+layout_mode = 0
+offset_left = 75.0
+offset_top = 506.0
+offset_right = 1836.0
+offset_bottom = 865.0
+theme_override_fonts/font = ExtResource("3_bt7pd")
+theme_override_font_sizes/font_size = 125
+text = "WASD/arrow keys: move around"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="back" type="Button" parent="." unique_id=471478312]
+layout_mode = 0
+offset_left = 60.0
+offset_top = 875.0
+offset_right = 334.0
+offset_bottom = 1018.0
+theme_override_fonts/font = ExtResource("3_bt7pd")
+theme_override_font_sizes/font_size = 125
+text = "Back"
+
+[node name="next" type="Button" parent="." unique_id=1554375609]
+layout_mode = 0
+offset_left = 1590.0
+offset_top = 882.0
+offset_right = 1864.0
+offset_bottom = 1025.0
+theme_override_fonts/font = ExtResource("3_bt7pd")
+theme_override_font_sizes/font_size = 125
+text = "Next"
+
+[node name="buttonAudio" type="AudioStreamPlayer" parent="." unique_id=732208953]
+stream = ExtResource("4_x6k6f")
+
+[connection signal="pressed" from="back" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="next" to="." method="_on_next_pressed"]

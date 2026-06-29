@@ -1,0 +1,90 @@
+[gd_scene format=3 uid="uid://b3rk8uytjhtnu"]
+
+[ext_resource type="Texture2D" uid="uid://tcmknpivxtx" path="res://grass.png" id="1_4mqed"]
+[ext_resource type="Script" uid="uid://8c23ly376rdp" path="res://guide.gd" id="1_83y8a"]
+[ext_resource type="FontFile" uid="uid://bj1ldrapg38oa" path="res://BotanicaWhimsyRegular-yYR63.ttf" id="2_feuw2"]
+[ext_resource type="FontFile" uid="uid://k3qg4fgal00y" path="res://KgPrimaryWhimsy-82qz.ttf" id="3_feuw2"]
+[ext_resource type="Texture2D" uid="uid://ca78joxahpsp4" path="res://butterfly.png" id="4_gajip"]
+[ext_resource type="AudioStream" uid="uid://ckymcwelv4iy6" path="res://001-hover-01_3R5oRAg3.wav" id="6_utvnm"]
+
+[node name="guide" type="Control" unique_id=1040805486]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_83y8a")
+
+[node name="Grass" type="Sprite2D" parent="." unique_id=1002813400]
+position = Vector2(967, 514)
+texture = ExtResource("1_4mqed")
+
+[node name="title" type="Label" parent="." unique_id=96129437]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -456.5
+offset_top = 118.0
+offset_right = 456.5
+offset_bottom = 369.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 3
+theme_override_fonts/font = ExtResource("2_feuw2")
+theme_override_font_sizes/font_size = 150
+text = "How to Play"
+horizontal_alignment = 1
+
+[node name="goal" type="Label" parent="." unique_id=1468653821]
+layout_mode = 0
+offset_left = 75.0
+offset_top = 506.0
+offset_right = 1836.0
+offset_bottom = 865.0
+theme_override_fonts/font = ExtResource("3_feuw2")
+theme_override_font_sizes/font_size = 125
+text = "The goal: catch the yellow butterflies while avoiding the evil butterflies"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="back" type="Button" parent="." unique_id=1663640963]
+layout_mode = 0
+offset_left = 60.0
+offset_top = 875.0
+offset_right = 334.0
+offset_bottom = 1018.0
+theme_override_fonts/font = ExtResource("3_feuw2")
+theme_override_font_sizes/font_size = 125
+text = "Back"
+
+[node name="next" type="Button" parent="." unique_id=1786390779]
+layout_mode = 0
+offset_left = 1590.0
+offset_top = 882.0
+offset_right = 1864.0
+offset_bottom = 1025.0
+theme_override_fonts/font = ExtResource("3_feuw2")
+theme_override_font_sizes/font_size = 125
+text = "Next"
+
+[node name="Butterfly" type="Sprite2D" parent="." unique_id=243584455]
+position = Vector2(1125, 459)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("4_gajip")
+
+[node name="evilButterfly" type="Sprite2D" parent="." unique_id=217862407]
+modulate = Color(1, 0.24705882, 0, 1)
+self_modulate = Color(1, 0.24705882, 0, 1)
+position = Vector2(1099, 833)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("4_gajip")
+
+[node name="buttonAudio" type="AudioStreamPlayer" parent="." unique_id=1727832975]
+stream = ExtResource("6_utvnm")
+
+[connection signal="pressed" from="back" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="next" to="." method="_on_next_pressed"]

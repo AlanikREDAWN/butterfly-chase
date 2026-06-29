@@ -11,7 +11,18 @@ extends Node2D
 func _ready() -> void:
 	game_start()
 	Global.butterfly_caught.connect(_on_butterfly_caught)
+	Global.spawn_butterfly.connect(_spawn_butterfly)
 	#Global.game_start.connect(_on_game_start)
+
+func _spawn_butterfly():
+	print("spawn butterfly")
+	var rng = RandomNumberGenerator.new()
+	var rndX = rng.randi_range(0, screenSize.x)
+	var rndY = rng.randi_range(0, screenSize.y)
+	var butterfly_scene = load("res://butterfly.tscn")
+	var butterfly = butterfly_scene.instantiate()
+	add_child.call_deferred(butterfly)
+	butterfly.global_position = Vector2(rndX, rndY)
 
 func _on_butterfly_caught():
 	butterfly_caught.play()
@@ -22,9 +33,21 @@ func _on_butterfly_caught():
 	var rndX = rng.randi_range(0, screenSize.x)
 	var rndY = rng.randi_range(0, screenSize.y)
 	var butterfly_scene = load("res://butterfly.tscn")
-	var butterfly = butterfly_scene.instantiate()
-	add_child.call_deferred(butterfly)
-	butterfly.global_position = Vector2(rndX, rndY)
+	var evil_butterfly_scene = load("res://evilButterfly.tscn")
+	var randomnumber = rng.randi_range(1, 3)
+	if randomnumber == 1:
+		var butterfly = butterfly_scene.instantiate()
+		add_child.call_deferred(butterfly)
+		butterfly.global_position = Vector2(rndX, rndY)
+		
+	elif randomnumber == 2:
+		var evil_butterfly = evil_butterfly_scene.instantiate()
+		add_child.call_deferred(evil_butterfly)
+		evil_butterfly.global_position = Vector2(rndX, rndY)
+	
+	#var butterfly = butterfly_scene.instantiate()
+	#add_child.call_deferred(butterfly)
+	#butterfly.global_position = Vector2(rndX, rndY)
 
 func game_start():
 	Global.game_active = true
