@@ -1,6 +1,7 @@
 # Butterfly Chase
 
-A whimiscal game where your only goal is to catch butterflies!
+A whimiscal game where your only goal is to catch yellow butterflies and avoid the evil ones!
+WASD to move. You'll fall asleep if you touch the evil butterflies, but catch as many yellow ones as you can!
 
 ## Credits:
 	- artwork/animations: me!
